@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="ProductName" Value="Folder Name Reverser"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{5475602F-9611-42A0-89EF-EBFED0741B20}"/>
+    <ROW Property="ProductCode" Value="{56E5D960-36DC-4787-8BE4-E87EFDE74FF3}"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon.exe"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="CodeUnit"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="Inputs_DIR" Directory_Parent="TARGETDIR" DefaultDir="Inputs"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Application_Loader.exe" ComponentId="{5556987A-8EC0-445E-BC0D-0FF79D818E02}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Application_Loader.exe" FullKeyPath="TARGETDIR\Application_Loader.exe"/>
+    <ROW Component="AutoUpdate.exe" ComponentId="{3700580C-4E98-4E36-B60F-CAC8E810F68A}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="AutoUpdate.exe" FullKeyPath="TARGETDIR\AutoUpdate.exe"/>
+    <ROW Component="config.aup" ComponentId="{6A1FCF3A-13C8-4FDB-81BC-9BD4CAC91037}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="config.aup" FullKeyPath="TARGETDIR"/>
+    <ROW Component="Folder_Name_Reverser.exe" ComponentId="{8FB3E3C9-30C1-413E-BF0A-4EE041A88B8D}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Folder_Name_Reverser.exe" FullKeyPath="TARGETDIR\Folder Name Reverser.exe"/>
+    <ROW Component="Inputs.txt" ComponentId="{74E0BFDD-69BC-431A-A9B2-047819A27F11}" Directory_="Inputs_DIR" Attributes="0" Condition="" KeyPath="Inputs.txt" FullKeyPath="TARGETDIR\Inputs"/>
+    <ROW Component="za.exe" ComponentId="{35B1E54A-00BB-442E-A597-9DCC9493502E}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="za.exe" FullKeyPath="TARGETDIR\7za.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="za.exe Application_Loader.exe AutoUpdate.exe config.aup Folder_Name_Reverser.exe Inputs.txt"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AutoUpdate.exe" Component_="AutoUpdate.exe" FileName="AutoUp~1.exe|AutoUpdate.exe" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\AutoUpdate.exe" SelfReg="false"/>
+    <ROW File="Splash_Image.jpg" Component_="Inputs.txt" FileName="Splash~1.jpg|Splash_Image.jpg" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Inputs\Splash_Image.jpg" SelfReg="false"/>
+    <ROW File="Folder_Name_Reverser.exe" Component_="Folder_Name_Reverser.exe" FileName="Folder~1.exe|Folder Name Reverser.exe" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Folder Name Reverser.exe" SelfReg="false"/>
+    <ROW File="Help.txt" Component_="config.aup" FileName="Help.txt" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Help.txt" SelfReg="false"/>
+    <ROW File="Inputs.txt" Component_="Inputs.txt" FileName="Inputs.txt" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Inputs\Inputs.txt" SelfReg="false"/>
+    <ROW File="za.exe" Component_="za.exe" FileName="7za.exe" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\7za.exe" SelfReg="false"/>
+    <ROW File="Application_Loader.exe" Component_="Application_Loader.exe" FileName="Applic~1.exe|Application_Loader.exe" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Application_Loader.exe" SelfReg="false"/>
+    <ROW File="Description.txt" Component_="config.aup" FileName="Descri~1.txt|Description.txt" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\Description.txt" SelfReg="false"/>
+    <ROW File="config.aup" Component_="config.aup" FileName="config.aup" Version="" Language="" Attributes="" SourcePath="..\Folder Name Reverser\Required Files\config.aup" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Source="" Target="A higher version of [ProductName] is installed."/>
+    <ROW Action="AI_ViewReadme" Type="194" Source="viewer.exe" Target="[#Description.txt]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#Application_Loader.exe]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+    <ROW UpgradeCode="UpgradeCode" VersionMin="ProductVersion" VersionMax="" Language="" Attributes="2" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Folder_Name_Reverser_AutoUpdate" Directory_="SHORTCUTDIR" Name="AutoUp~1|Folder Name Reverser AutoUpdate" Component_="Application_Loader.exe" Target="[TARGETDIR]AutoUpdate.exe" Arguments="force" Description="AutoUpdate" Hotkey="0" Icon_="TARGETDIR_AutoUpdate.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Folder_Name_Reverser_Uninstall" Directory_="SHORTCUTDIR" Name="Uninst~1|Folder Name Reverser Uninstall" Component_="Application_Loader.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Folder_Name_Reverser" Directory_="SHORTCUTDIR" Name="Folder~1|Folder Name Reverser" Component_="Application_Loader.exe" Target="[TARGETDIR]Application_Loader.exe" Arguments="" Description="Folder Name Reverser" Hotkey="0" Icon_="controlPanelIcon.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="TARGETDIR_AutoUpdate.exe" SourcePath="Images\AutoUpdate.ico" Index="0"/>
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon.exe" SourcePath="Images\Application_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="10"/>
+    <ATTRIBUTE name="PackageName" value="Release\Folder Name Reverser Installer"/>
+    <ATTRIBUTE name="IconPath" value="Images\Application_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>

@@ -1,0 +1,8 @@
+Folder Name Reverser renames all the folders within a specified folder by reversing the tokens contained in the name. So for example: "Folder Name Reverser" will now become "Reverser Name Folder". Note that the folder parsing is not recursive in nature.
+
+To start the operation, simply click on the Begin button. 
+
+The help and about menu options brings up the help and about dialog boxes respectively.
+
+
+-- Last Updated: 31/10/2007 --
